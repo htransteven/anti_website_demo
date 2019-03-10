@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <title>Anti. Demo Site</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="scripts.js"></script>
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+  <!--Made by Steven Huynh-Tran-->
+  <!--Made by Alex Shortt-->
+</head>
+<body>
+    <div class="view">
+        <div class="carousel">
+            <div class="container wireframe" id= "home">
+            </div>
+            <div class="container wireframe" id= "shop">
+            </div>
+            <div class="container wireframe" id= "contact">
+            </div>
+        </div>
+    </div>
+
+    <script>
+      $(document).keydown(function(e) {
+        switch(e.keyCode){
+          case 37:
+            rotateCarousel("left");
+            break;
+          case 39:
+            rotateCarousel("right");
+            break;
+        }
+      });
+    </script>
+</body>
+</html>
