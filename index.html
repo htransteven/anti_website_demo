@@ -11,14 +11,28 @@
 </head>
 <body>
     <div class="view">
-        <div class="carousel">
-            <div class="container wireframe" id= "home">
+        <div class="Skybox-position">
+          <div class="Skybox-rotor-x">
+            <div class="Skybox-rotor-y">
+              <div class="Skybox-faces">
+                <div class="Skybox-face Skybox-face-front"></div>
+                <div class="Skybox-face Skybox-face-back"></div>
+                <div class="Skybox-face Skybox-face-left"></div>
+                <div class="Skybox-face Skybox-face-right"></div>
+                <div class="Skybox-face Skybox-face-up"></div>
+                <div class="Skybox-face Skybox-face-down"></div>
+              </div>
             </div>
-            <div class="container wireframe" id= "shop">
-            </div>
-            <div class="container wireframe" id= "contact">
-            </div>
-        </div>
+          </div>
+      </div>
+      <div class="carousel">
+          <div class="container wireframe" id= "home">
+          </div>
+          <div class="container wireframe" id= "shop">
+          </div>
+          <div class="container wireframe" id= "contact">
+          </div>
+      </div>
     </div>
 
     <script>
@@ -26,9 +40,11 @@
         switch(e.keyCode){
           case 37:
             rotateCarousel("left");
+            rotateSkyBox("left");
             break;
           case 39:
             rotateCarousel("right");
+            rotateSkyBox("right");
             break;
         }
       });

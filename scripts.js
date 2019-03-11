@@ -15,11 +15,10 @@ var selectedIndex = 0;
 function rotateCarousel(direction) {
 
   var carousel = $(".carousel");
+  var angle, prevAngle;
 
-  var angle;
-
-  console.log("Starting Index = " + selectedIndex);
-
+  // Loop
+  /*
   if(direction == "left"){
     if(selectedIndex == -1){
       selectedIndex = 1;
@@ -33,16 +32,44 @@ function rotateCarousel(direction) {
       selectedIndex++;
     }
   }
+  */
+
+  prevAngle = selectedIndex / cellCount * 360;
+
+  if(direction == "left"){
+    if(selectedIndex != -1){
+      selectedIndex--;
+    }
+  } else {
+    if(selectedIndex != 1){
+      selectedIndex++;
+    }
+  }
+
   angle = selectedIndex / cellCount * 360;
 
-  console.log("Index = " + selectedIndex + "\n " + direction);
-
-  carousel.css("transform", 'translate(-50%, -50%) translateZ(100vw)');
+  carousel.css("transition", "transform 0.5s");
+  carousel.css("transform", 'translate(-50%, -50%) translateZ(100vw) rotateY(' + prevAngle + 'deg)');
   setTimeout(function(carousel) {
+    carousel.css("transition", "transform 0.25s");
     carousel.css("transform", 'translate(-50%, -50%) translateZ(100vw) rotateY(' + angle + 'deg)');
-  }, 750, carousel);
+  }, 500, carousel);
   setTimeout(function(carousel) {
     carousel.css("transform", 'translate(-50%, -50%) translateZ(150vw) rotateY(' + angle + 'deg)');
-  }, 1250, carousel);
+  }, 1000, carousel);
+
+}
+
+function rotateSkyBox(direction) {
+
+  var containers = 4;
+
+  var angle;
+  angle = selectedIndex / containers * 360;
+
+  $(".Skybox-rotor-y").css("transition", 'transform 0.25s');
+  setTimeout(function() {
+    $(".Skybox-rotor-y").css("transform", 'rotateY(' + angle + 'deg)');
+  }, 500);
 
 }
