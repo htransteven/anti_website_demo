@@ -29,6 +29,7 @@
           <div class="container wireframe" id= "home">
           </div>
           <div class="container wireframe" id= "shop">
+            <img class="container_image" src="./assets/pictures/anti_logo.png">
           </div>
           <div class="container wireframe" id= "contact">
           </div>
@@ -36,6 +37,41 @@
     </div>
 
     <script>
+
+        var x_pos, y_pos;
+        var pageWidth, pageHeight;
+
+      $(".view").mousemove(function(e) {
+        x_pos = e.pageX;
+        y_pos = e.pageY;
+
+        pageWidth = $(".view").width();
+        pageHeight = $(".view").height();
+        if(x_pos < (0.2 * pageWidth)){
+          //$(".view").css("cursor", "url('./assets/pointers/center-left-arrow.png') 64 64, auto");
+          $(".view").addClass("cursorLeft");
+          console.log("class");
+        } else if (x_pos > (0.8 * pageWidth)){
+          $(".view").addClass("cursorRight");
+          //$(".view").css("cursor", "url('./assets/pointers/center-right-arrow.png') 64 64, auto");
+        } else {
+          $(".view").removeClass("cursorLeft");
+          $(".view").removeClass("cursorRight");
+          $(".view").addClass("cursorCenter");
+          //$(".view").css("cursor", "url('./assets/pointers/center-arrow.png') 64 64, auto");
+        }
+      });
+
+      $(".view").click(function() {
+        if(x_pos < (0.2 * pageWidth)){
+          rotateCarousel("left");
+          rotateSkyBox("left");
+        } else if (x_pos > (0.8 * pageWidth)){
+          rotateCarousel("right");
+          rotateSkyBox("right");
+        }
+      });
+
       $(document).keydown(function(e) {
         switch(e.keyCode){
           case 37:
